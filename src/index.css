@@ -1,12 +1,39 @@
-
-.burger{
-  color: red;
+.header {
+    background: url("./assets/navbar.jpeg") no-repeat center;
+    background-size: cover;
+    min-height: 10vh;
 }
 
-.backgroundNavbar{
-  background-image: url("./assets/bugerbanner.avif");
-  min-height: 130px;
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-  background-position: center;
+@media only screen and (max-width: 900px) {
+    .header {
+        min-height: 5vh;
+    }
+  }
+
+.header .navbar {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+.table {
+    background-color: transparent !important;
+
+}
+
+table tr td, table tr th{
+    background-color: rgba(0,0,0, 0) !important;
+    color: white!important;
+}
+
+.section{
+    background: url("./assets/fondo.jpeg") no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
+.background-table{
+    background-color:rgba(0,0,0, 0.3) !important;
+    border-radius: 10px;
+
 }
