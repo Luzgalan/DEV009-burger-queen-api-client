@@ -8,13 +8,6 @@
     min-height: 13vh;
 }
 
-.backgroundNavbar {
-  background-image: url("./assets/bugerbanner.avif");
-  min-height: 130px;
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-  background-position: center;
-}
 
 
 /********************LOGIN********************/
@@ -115,7 +108,12 @@ margin-top: 25px;
     .header {
         min-height: 5vh;
     }
+    .imgLogo {
+        max-width: 5vh;
+      }
   }
+
+}
 
 /********************ADMINISTRADOR********************/
 
@@ -145,8 +143,24 @@ table tr td, table tr th{
     background-color:rgba(0,0,0, 0.3) !important;
     border-radius: 10px;
 
-}}
+}
 
+a{
+    color: white!important;
+    font-family: bungee;
+}
+a.active {
+    color: #E7DE0F!important;
+    font-family: bungee;
+  }
+
+  h1 {
+    font-family: bungee;
+  }
+
+  .imgLogo {
+    max-width: 20vh;
+  }
 /********************CHEF********************/
 
 .header-chef {
@@ -210,15 +224,3 @@ padding-left: 40%;
 background: rgba(94, 94, 94, 0.70);
 
 }
-a{
-    color: white!important;
-    font-family: bungee;
-}
-a.active {
-    color: #E7DE0F!important;
-    font-family: bungee;
-  }
-
-  h1 {
-    font-family: bungee;
-  }

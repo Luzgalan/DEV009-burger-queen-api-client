@@ -11,7 +11,9 @@ const NavbarComponent = () => {
 
     <Navbar expand="lg" className="bg-body-tertiary navbar-dark">
       <Container>
-        <Navbar.Brand >Burquer Queen</Navbar.Brand>
+        <Navbar.Brand >
+            <img className='imgLogo' src="/src/assets/Burguer__2_-removebg-preview.png" alt="" />
+        </Navbar.Brand>
         <Navbar.Toggle  aria-controls="basic-navbar-nav" />
         <Navbar.Collapse    id="basic-navbar-nav">
           <Nav  className="ms-auto">
@@ -19,6 +21,8 @@ const NavbarComponent = () => {
           <Nav.Link as={NavLink} to="/admin/productos  " >Productos</Nav.Link> 
           <Nav.Link as={NavLink} to="/admin/ordenar  " >Ordenar</Nav.Link> 
           <Nav.Link as={NavLink} to="/admin/servir" >Servir</Nav.Link> 
+          <Nav.Link as={NavLink} to="/admin/chef" >Chef</Nav.Link> 
+
           <Nav.Link as={NavLink} to="/  " >Cerrar sesión</Nav.Link> 
             {/* <Nav.Link  to="/admin/personas" className={({isActive})=> isActive ? "active" : ""}>            </Nav.Link>
             <Nav.Link  to="/admin/productos">Productos</Nav.Link> */}
