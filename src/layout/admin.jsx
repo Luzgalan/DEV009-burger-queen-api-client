@@ -6,7 +6,9 @@ const AdminLayout = () => {
   return (
     <div>
       <NavbarComponent/>
-      <Outlet/>
+      <section className='section'>
+        <Outlet/>
+      </section>
     </div>
   )
 }
