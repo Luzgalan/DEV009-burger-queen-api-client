@@ -4,11 +4,16 @@ import LoginLayout from "./layout/login";
 //import { Children } from "react";
 import UsuarioPage from "./pages/usuarios";
 import ProductosPage from "./pages/productos";
+import ChefLayout from "./layout/chef";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <LoginLayout/>
+    },
+    {
+        path: '/chef',
+        element: <ChefLayout/>
     },
     {
         path: '/admin',
@@ -22,6 +27,7 @@ export const router = createBrowserRouter([
                 path: '/admin/productos',
                 element: <ProductosPage/>
             },
+           
         ]
     },
 ])

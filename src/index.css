@@ -4,7 +4,7 @@
     min-height: 10vh;
 }
 
-.backgroundNavbar{
+.backgroundNavbar {
   background-image: url("./assets/bugerbanner.avif");
   min-height: 130px;
   background-repeat: no-repeat, repeat;
@@ -113,6 +113,8 @@ margin-top: 25px;
     }
   }
 
+/********************ADMINISTRADOR********************/
+
 .header .navbar {
     background-color: transparent !important;
     color: white !important;
@@ -140,3 +142,67 @@ table tr td, table tr th{
     border-radius: 10px;
 
 }}
+
+/********************CHEF********************/
+
+.header-chef {
+  background: url("..\src\assets\Fondo de navbar nueva.png") no-repeat center;
+  background-size: cover;
+  min-height: 10vh;
+  display: flex;
+}
+
+.header-chef img {
+  width: 240px;
+  height: 213px;
+}
+
+.header-chef nav {
+  color: #FFFFFF;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; 
+  margin-left: 60%;
+  margin-top: 6%;  
+}
+
+.chef-container {
+  background: url("./assets/fondo.jpeg") no-repeat center;
+    background-size: cover;
+    min-height: 100vh;
+   
+}
+
+.chef-container h1 {
+color: #FFF;
+font-size: 33px;
+font-style: normal;
+font-weight: 600;
+line-height: 22px; 
+letter-spacing: -0.72px;
+padding: 40px;
+padding-left: 40%;
+}
+
+.orders-container {
+  align-items: stretch;
+  justify-content: space-around;
+  display: flex;
+}
+
+.chef-container h2 {
+  color: #FFF;
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; 
+  letter-spacing: -0.72px;
+  padding-bottom: 20px;
+  }
+
+.orders-cards-back {
+  border-radius: 20px;
+background: rgba(94, 94, 94, 0.70);
+
+}
