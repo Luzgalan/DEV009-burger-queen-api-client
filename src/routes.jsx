@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import AdminLayout from "./layout/admin";
 import LoginLayout from "./layout/login";
-import { Children } from "react";
-import UsuarioPage from "./pages/usuarios";
-import ProductosPage from "./pages/productos";
+import UsuarioPage from "./pages/admin/usuarios";
+import ProductosPage from "./pages/admin/productos";
+import OrdenarPages from "./pages/mesero/ordenar";
+import ServirPages from "./pages/mesero/servir";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,14 @@ export const router = createBrowserRouter([
             {
                 path: '/admin/productos',
                 element: <ProductosPage/>
+            },
+            {
+                path: '/admin/ordenar',
+                element: <OrdenarPages/>
+            },
+            {
+                path: '/admin/servir',
+                element: <ServirPages/>
             },
         ]
     },

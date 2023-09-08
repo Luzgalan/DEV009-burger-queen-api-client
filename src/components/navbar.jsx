@@ -8,18 +8,7 @@ const NavbarComponent = () => {
     return (
         <div className="backgroundNavbar">
             <header className="header">
-            {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <a className="nav-link active text-warning fs-2" aria-current="page" href="/admin/usuarios">Usuarios</a>
-                        </li>
-                        <li className="nav-item "> 
-                            <a className="nav-link text-white fs-2 " href="/admin/productos">Productos </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav> */}
+
     <Navbar expand="lg" className="bg-body-tertiary navbar-dark">
       <Container>
         <Navbar.Brand >Burquer Queen</Navbar.Brand>
@@ -28,6 +17,9 @@ const NavbarComponent = () => {
           <Nav  className="ms-auto">
           <Nav.Link as={NavLink} to="/admin/usuarios  " >Usuarios</Nav.Link> 
           <Nav.Link as={NavLink} to="/admin/productos  " >Productos</Nav.Link> 
+          <Nav.Link as={NavLink} to="/admin/ordenar  " >Ordenar</Nav.Link> 
+          <Nav.Link as={NavLink} to="/admin/servir" >Servir</Nav.Link> 
+          <Nav.Link as={NavLink} to="/  " >Cerrar sesión</Nav.Link> 
             {/* <Nav.Link  to="/admin/personas" className={({isActive})=> isActive ? "active" : ""}>            </Nav.Link>
             <Nav.Link  to="/admin/productos">Productos</Nav.Link> */}
 

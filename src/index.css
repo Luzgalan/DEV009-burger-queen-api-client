@@ -1,7 +1,11 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+
 .header {
     background: url("./assets/navbar.jpeg") no-repeat center;
     background-size: cover;
-    min-height: 10vh;
+    min-height: 13vh;
 }
 
 @media only screen and (max-width: 900px) {
@@ -37,3 +41,15 @@ table tr td, table tr th{
     border-radius: 10px;
 
 }
+a{
+    color: white!important;
+    font-family: bungee;
+}
+a.active {
+    color: #E7DE0F!important;
+    font-family: bungee;
+  }
+
+  h1 {
+    font-family: bungee;
+  }
