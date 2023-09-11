@@ -22,7 +22,7 @@ const ProductosPage = () => {
             <th>Nombre</th>
             <th>Categoria</th>
             <th>Precio</th>
-            <th>Acciones</th>
+            <th className='text-end'>Acciones</th>
            
           </tr>
         </thead>
@@ -32,7 +32,7 @@ const ProductosPage = () => {
             <td>Jugo de naranja</td>
             <td>Desayuno</td>
             <td>$32</td>
-            <td>
+            <td className='text-end'> 
             <button type="button" className="btn btn-success me-1" aria-label="Left Align">
              <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
             </button>   
@@ -47,7 +47,7 @@ const ProductosPage = () => {
           <td>Cafe americano</td>
             <td>Resto del día</td>
             <td>$80</td>
-            <td>
+            <td className='text-end'>
             <button type="button" className="btn btn-success me-1" aria-label="Left Align">
              <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
             </button>   

@@ -9,7 +9,16 @@
 }
 
 
+.cardImg{
+    max-height:180px;
+    min-width: 150px;
+    align-items: center;
+}
 
+.card{
+    border-radius: 5px;
+    text-align: center;
+}
 /********************LOGIN********************/
 
 /*Imagen de fondo*/
@@ -223,4 +232,8 @@ padding-left: 40%;
   border-radius: 20px;
 background: rgba(94, 94, 94, 0.70);
 
+}
+
+.card-space{
+    gap: 5px    ;
 }
