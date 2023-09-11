@@ -14,13 +14,13 @@ const UsuarioPage = () => {
           </div>
           <div className="row  p-3">
             <div className="col-md-12">
-            <Table responsive="sm" className='table'>
+            <Table  className='table'>
                 <thead>
                  <tr>
                 <th>#</th>
             <th>Nombre</th>
             <th>Puesto</th>
-            <th>Acciones</th>
+            <th className='text-end'>Acciones</th>
            
           </tr>
         </thead>
@@ -29,7 +29,7 @@ const UsuarioPage = () => {
             <td>1</td>
             <td>Dalia</td>
             <td>Chef</td>
-            <td>
+            <td className='text-end'>
             <button type="button" className="btn btn-success me-1" aria-label="Left Align">
              <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
             </button>   
@@ -43,7 +43,7 @@ const UsuarioPage = () => {
             <td>1</td>
             <td>Dalia</td>
             <td>Chef</td>
-            <td>
+            <td className='text-end'>
             <button type="button" className="btn btn-success me-1" aria-label="Left Align">
              <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
             </button>   
