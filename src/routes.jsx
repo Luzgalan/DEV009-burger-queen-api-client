@@ -5,7 +5,6 @@ import UsuarioPage from "./pages/admin/usuarios";
 import ProductosPage from "./pages/admin/productos";
 import OrdenarPages from "./pages/mesero/ordenar";
 import ServirPages from "./pages/mesero/servir";
-import ChefLayout from "./layout/chef";
 import ChefPage from "./pages/chef/chefPage";
 
 export const router = createBrowserRouter([
@@ -13,10 +12,7 @@ export const router = createBrowserRouter([
         path: '/',
         element: <LoginLayout/>
     },
-    {
-        path: '/chef',
-        element: <ChefLayout/>
-    },
+    
     {
         path: '/admin',
         element: <AdminLayout/>,
