@@ -238,3 +238,8 @@ color: #FFFFFF  !important;
 .card-space{
     gap: 5px    ;
 }
+
+.custom-modal {
+    background-color: yellow!important; 
+    color: black; 
+  }
