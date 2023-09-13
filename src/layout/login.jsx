@@ -1,17 +1,21 @@
 //import 'bootstrap/dist/css/bootstrap.min.css';
 // import { Button } from 'react-bootstrap';
 import { useState } from "react";
+import {  useNavigate } from 'react-router-dom'; // Importa BrowserRouter y useHistory
+
 
 function LoginLayout() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigateTo = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Enviar credenciales al servidor mock API
-    const response = await fetch('https://app.swaggerhub.com/apis-docs/ssinuco/BurgerQueenAPI/2.0.0#/auth/getToken', {
+    const response = await fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,12 +23,18 @@ function LoginLayout() {
       body: JSON.stringify({ email, password }),
     });
 
+    
     if (response.ok) {
       // Si la respuesta es exitosa, asumimos que el usuario está autenticado
       const data = await response.json();
+      console.log(data)
 
       // Almacenar el token en el estado o en las cookies/local storage
-      const token = data.token;
+      const token = data.accessToken;
+
+      localStorage.setItem('token', token)
+      console.log(token)
+        navigateTo('/admin')
 
       // Redirigir al usuario a la página protegida o realizar otras acciones
     } else {
@@ -33,6 +43,7 @@ function LoginLayout() {
   };
  
   return (
+    
     <div className='Background-Login'>
       <img src='..\src\assets\Diseño sin título (2).png'></img>
       <div className="parte-izquierda">

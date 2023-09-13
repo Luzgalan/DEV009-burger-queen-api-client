@@ -5,7 +5,7 @@ import  PropTypes  from "prop-types"
 const ProductosModal = ({type}) => {
     return (
         <div className="bg-dark text-white">
-            <Modal.Header closeButton>
+            <Modal.Header  closeButton>
                 <Modal.Title>{type} Productos</Modal.Title>
             </Modal.Header>
             <Modal.Body>
@@ -33,7 +33,7 @@ const ProductosModal = ({type}) => {
             {type === "Editar" ? (
           <Button variant="success">Editar Producto</Button>
         ) : (
-          <Button variant="primary">Crear Producto</Button>
+          <Button variant="success">Crear Producto</Button>
         )}
         </Modal.Footer>
 

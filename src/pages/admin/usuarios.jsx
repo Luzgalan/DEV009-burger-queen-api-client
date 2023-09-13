@@ -1,6 +1,10 @@
 import Table from 'react-bootstrap/Table';
 
 const UsuarioPage = () => {
+
+
+
+    
   return (
     <div>
      <br />
