@@ -39,7 +39,7 @@ const OrdenarPages = () => {
             </div>
             <div className="row g-5">
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta" >
                         <div>
                         <img  className="cardImg" src="/src/assets/jugo de naranja.jpeg" alt="Jugo de naranja" />
                         </div>
@@ -54,7 +54,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/sandwi.jpg" alt="Jugo de naranja" />
                         </div>
@@ -67,7 +67,7 @@ const OrdenarPages = () => {
                         </Card.Body>
                     </Card>
                 </div> <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/aros.jpg" alt="Jugo de naranja" />
                         </div>
@@ -81,7 +81,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div> 
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/cafe.jpg" alt="Jugo de naranja" />
                         </div>
@@ -95,7 +95,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/hamburguesa.jpg" alt="Jugo de naranja" />
                         </div>
@@ -109,7 +109,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/papasfri.jpg" alt="Jugo de naranja" />
                         </div>
@@ -123,7 +123,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/cafeleche.jpg" alt="Jugo de naranja" />
                         </div>                        <Card.Body>
@@ -136,7 +136,7 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
                 <div className=" col-xl-3 col-md-4 col-sm-6 ">
-                    <Card >
+                    <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/jugo de naranja.jpeg" alt="Jugo de naranja" />
                         </div>
