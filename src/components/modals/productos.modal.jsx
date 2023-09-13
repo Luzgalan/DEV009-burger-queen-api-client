@@ -23,9 +23,10 @@ const ProductosModal = ({type}) => {
       <option value="2">Resto del dia</option>
     </Form.Select>
     </FormGroup>
+      
       <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-      <Form.Label>Categoria</Form.Label>
-        <Form.Control type="text" placeholder="" />
+      <Form.Label>Precio</Form.Label>
+        <Form.Control type="number" placeholder="" />
       </Form.Group>
     </Form>
             </Modal.Body>
@@ -33,7 +34,8 @@ const ProductosModal = ({type}) => {
             {type === "Editar" ? (
           <Button variant="success">Editar Producto</Button>
         ) : (
-          <Button variant="primary">Crear Producto</Button>
+          <Button variant="success">Crear Producto</Button>
+          
         )}
         </Modal.Footer>
 
