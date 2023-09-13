@@ -1,8 +1,26 @@
-import { Button, Card } from "react-bootstrap"
+import { Button, Card, Modal } from "react-bootstrap"
+import OrdenarModal from "../../components/modals/ordenar.modal";
+import { useState } from "react";
+
 
 
 const OrdenarPages = () => {
+    //declaración de una variable de estado
+
+    const [showModal, setShowModal] = useState(false);
+    const [tipoModal, setTipoModal] = useState('')
+
+    const mostrarModal = (type) => {
+        setShowModal(true)
+        setTipoModal(type)
+    }
+    const ocultarModal = () => {
+        setShowModal(false)
+
+    }
+
     return (
+        <>
         <div className="container overflow-hidden ">
             <br />
             <div className="row mb-5">
@@ -13,7 +31,7 @@ const OrdenarPages = () => {
                     <h2 className="text-white">Resto del día</h2>
                 </div>
                 <div className="col-md-3 offset-md-3">
-                    <button type="button" className="btn btn-success me-1" aria-label="Left Align">
+                    <button onClick={() => mostrarModal('Registrar')} type="button" className="btn btn-success me-1" aria-label="Left Align">
                         <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Ver orden
                     </button>
                 </div>
@@ -132,10 +150,11 @@ const OrdenarPages = () => {
                     </Card>
                 </div>
             </div>
-
-
-
         </div>
+         <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
+         <OrdenarModal type={tipoModal}></OrdenarModal>
+     </Modal>
+      </>
     )
 }
 
