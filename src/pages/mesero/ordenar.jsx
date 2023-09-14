@@ -1,14 +1,24 @@
 import { Button, Card, Modal } from "react-bootstrap"
 import OrdenarModal from "../../components/modals/ordenar.modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getAllProductos } from "../../service/producto";
+
 
 
 
 const OrdenarPages = () => {
     //declaración de una variable de estado
-
+   
     const [showModal, setShowModal] = useState(false);
     const [tipoModal, setTipoModal] = useState('')
+
+    const [productos,setProductos]= useState([])
+
+    //funcion useEfect para hacer la peticion cuando cargue la pagina 
+useEffect(()=>{
+    //consumir servicio 
+    getAllProductos().then(respon=> setProductos(respon));
+   },[])
 
     const mostrarModal = (type) => {
         setShowModal(true)
@@ -38,7 +48,23 @@ const OrdenarPages = () => {
 
             </div>
             <div className="row g-5">
-                <div className=" col-xl-3 col-md-4 col-sm-6 ">
+
+            {productos.map((producto) => (
+            <div className="col-xl-3 col-md-4 col-sm-6" key={producto.id}>
+              <Card className="fondo-de-tarjeta">
+                <div>
+                  <img className="cardImg" src={producto.image} alt={producto.name} />
+                 
+                </div>
+                <Card.Body>
+                  <Card.Title className="texto-tarjeta">{producto.name}</Card.Title>
+                  <Card.Text className="texto-tarjeta">${producto.price}</Card.Text>
+                  <Button variant="success">Agregar</Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+                {/* <div className=" col-xl-3 col-md-4 col-sm-6 ">
                     <Card className="fondo-de-tarjeta" >
                         <div>
                         <img  className="cardImg" src="/src/assets/jugo de naranja.jpeg" alt="Jugo de naranja" />
@@ -52,8 +78,8 @@ const OrdenarPages = () => {
                             <Button variant="success">Agregar</Button>
                         </Card.Body>
                     </Card>
-                </div>
-                <div className=" col-xl-3 col-md-4 col-sm-6 ">
+                </div> */}
+                {/* <div className=" col-xl-3 col-md-4 col-sm-6 ">
                     <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/sandwi.jpg" alt="Jugo de naranja" />
@@ -65,8 +91,8 @@ const OrdenarPages = () => {
                             </Card.Text>
                             <Button variant="success">Agregar</Button>
                         </Card.Body>
-                    </Card>
-                </div> <div className=" col-xl-3 col-md-4 col-sm-6 ">
+                    </Card> */}
+                {/* </div> <div className=" col-xl-3 col-md-4 col-sm-6 ">
                     <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/aros.jpg" alt="Jugo de naranja" />
@@ -93,8 +119,8 @@ const OrdenarPages = () => {
                             <Button variant="success">Agregar</Button>
                         </Card.Body>
                     </Card>
-                </div>
-                <div className=" col-xl-3 col-md-4 col-sm-6 ">
+                </div> */}
+                {/* <div className=" col-xl-3 col-md-4 col-sm-6 ">
                     <Card className="fondo-de-tarjeta">
                     <div>
                         <img  className="cardImg" src="/src/assets/hamburguesa.jpg" alt="Jugo de naranja" />
@@ -148,7 +174,7 @@ const OrdenarPages = () => {
                             <Button variant="success">Agregar</Button>
                         </Card.Body>
                     </Card>
-                </div>
+                </div> */}
             </div>
         </div>
          <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
