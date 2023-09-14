@@ -34,7 +34,7 @@ function LoginLayout() {
 
       localStorage.setItem('token', token)
       console.log(token)
-        navigateTo('/admin')
+        navigateTo('/admin/usuarios')
 
       // Redirigir al usuario a la página protegida o realizar otras acciones
     } else {
