@@ -11,11 +11,7 @@ const UsuarioModal = ({type}) => {
             <Modal.Body>
             <Form   >
       <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Nombre</Form.Label>
-        <Form.Control type="text" placeholder="" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Apellido</Form.Label>
+        <Form.Label>Correo electrónico</Form.Label>
         <Form.Control type="text" placeholder="" />
       </Form.Group>
       <FormGroup>
