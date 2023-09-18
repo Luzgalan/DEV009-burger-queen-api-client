@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap"
 import { Modal } from "react-bootstrap";
 import UsuarioModal from "../../components/modals/usuario.modal";
+import { deleteAllUsers, getAllUsuario } from "../../service/usuario/usuarios";
+import Swal from 'sweetalert2';
 
 const UsuarioPage = () => {
+
 
    //declaración de una variable de estado
 
    const [showModal, setShowModal] = useState(false);
    const [tipoModal, setTipoModal] = useState('')
+
+
+   const [usuario,setUsuarios]= useState([])
+   //variable para renderizar
+const [render, setRender] = useState(false) 
+   //funcion useEfect para hacer la peticion cuando cargue la pagina 
+   useEffect(()=>{
+    //consumir servicio 
+    getAllUsuario().then(data=> setUsuarios(data));
+   },[render])
 
    const mostrarModal = (type) => {
        setShowModal(true)
@@ -18,6 +31,29 @@ const UsuarioPage = () => {
        setShowModal(false)
 
    }
+
+//funcion para eliminar 
+const showAlertdelete = (user) => {
+    console.log(user)
+    Swal.fire({
+        title: `Estas seguro de eliminar al usuario ${user.name}?`,
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Sí',
+        denyButtonText: `No`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            deleteAllUsers(user.id).then(()=>{
+                Swal.fire('Usuario eliminado con éxito!', '', 'success')
+                setRender(!render)
+            })
+         
+        } 
+      })
+  };
+
+
   return (
      <>
     <div>
@@ -37,40 +73,32 @@ const UsuarioPage = () => {
                  <tr>
                 <th>#</th>
             <th>Nombre</th>
+            <th>email</th>
             <th>Puesto</th>
             <th className='text-end'>Acciones</th>
            
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dalia</td>
-            <td>Chef</td>
-            <td className='text-end'>
+            {
+
+                usuario.map(user=>(
+                    <tr key={user.id}>
+                    <td key={user.id}>{user.id} </td>
+                    <td key={user.name}>{user.name} </td>
+                    <td key={user.email}>{user.email} </td>
+                    <td key={user.role}>{user.role} </td>
+                    <td className='text-end'>
             <button onClick={() => mostrarModal('Editar')} type="button" className="btn btn-success me-1" aria-label="Left Align">
              <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
             </button>   
-            <button type="button" className="btn btn-danger ms-1" aria-label="Left Align">
+            <button  onClick={()=> showAlertdelete(user) } type="button" className="btn btn-danger ms-1" aria-label="Left Align" >
              <span className="fa fa-trash fa-lg" aria-hidden="true"></span> Eliminar
             </button>   
             </td>
-           
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Dalia</td>
-            <td>Chef</td>
-            <td className='text-end'>
-            <button type="button" className="btn btn-success me-1" aria-label="Left Align">
-             <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
-            </button>   
-            <button type="button" className="btn btn-danger ms-1" aria-label="Left Align">
-             <span className="fa fa-trash fa-lg" aria-hidden="true"></span> Eliminar
-            </button>   
-            </td>
-           
-          </tr>
+            </tr>
+                ))
+            }
           
         </tbody>
       </Table>
