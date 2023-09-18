@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
 
+.ms-auto {
+  background-color: rgba(84, 95, 113, 0.50);
+  border-radius: 5px;
+  
+}
+
 .header {
     background: url("./assets/navbar.jpeg") no-repeat center;
     background-size: cover;
