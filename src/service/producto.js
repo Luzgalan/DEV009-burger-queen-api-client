@@ -27,3 +27,15 @@ export const deleteAllProducts = async (productId) => {
 
 
 //Funcion para editar los productos
+
+export const updateProduct = async (productId, updatedData) => {
+  const response = await fetch (`${baseUrl}/products/${productId}`, {
+    method: 'PATCH',
+    headers: headers,
+    body: JSON.stringify(updatedData),
+  })
+
+  if (response.status == 200) {
+    return await response.json()
+  }
+}

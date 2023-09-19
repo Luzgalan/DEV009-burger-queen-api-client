@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap"
 import { Modal } from "react-bootstrap";
 import ProductosModal from "../../components/modals/productos.modal";
-import { getAllProductos, deleteAllProducts } from "../../service/producto";
+import { getAllProductos, deleteAllProducts, updateProduct } from "../../service/producto";
 //import { render } from "react-dom";
 import Swal from 'sweetalert2';
 
@@ -16,7 +16,10 @@ const ProductosPage = () => {
     const [tipoModal, setTipoModal] = useState('')
 
     const [productos,setProductos]= useState([])
+    const [selectedProduct, setselectedProduct] = useState(null)
     const [render,setRender]= useState([])
+
+
  
 //funcion useEfect para hacer la peticion cuando cargue la pagina 
 useEffect(()=>{
@@ -26,9 +29,10 @@ useEffect(()=>{
 
 
   //funciones para abrir modal
-    const mostrarModal = (type) => {
+    const mostrarModal = (type, product) => {
         setShowModal(true)
         setTipoModal(type)
+        setselectedProduct(product)
     }
     const ocultarModal = () => {
         setShowModal(false)
@@ -56,6 +60,26 @@ useEffect(()=>{
              
             } 
           })
+      };
+
+      const handleEditProduct = async (updatedData) => {
+        try {
+          const updatedProduct = await updateProduct(selectedProduct.id, updatedData);
+          setProductos((prevProductos) => {
+            const updatedProducts = prevProductos.map((product) => {
+              if (product.id === updatedProduct.id) {
+                // Si el ID coincide, reemplazamos el producto con el actualizado
+                return updateProduct;
+              }
+              return product;
+            });
+            return updatedProducts;
+          });
+          ocultarModal();
+        } catch (error) {
+          console.error('Error al editar el producto', error);
+          // Maneja el error aquí, por ejemplo, muestra un mensaje de error al usuario
+        }
       };
 
     return (
@@ -91,7 +115,7 @@ useEffect(()=>{
                                         <td key={producto.type}>{producto.type} </td>
                                         <td key={producto.price}>{producto.price} </td>
                                         <td className='text-end'>
-                                        <button onClick={() => mostrarModal('Editar')}  type="button" className="btn btn-success me-1" aria-label="Left Align">
+                                        <button onClick={() => mostrarModal('Editar', producto)}  type="button" className="btn btn-success me-1" aria-label="Left Align">
                                             <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
                                         </button>
                                         <button  onClick={()=> showAlertdeleteForProducts(producto) } type="button" className="btn btn-danger ms-1" aria-label="Left Align" >
@@ -109,7 +133,7 @@ useEffect(()=>{
                 </div>
             </div>
             <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
-                <ProductosModal type={tipoModal}></ProductosModal>
+                <ProductosModal type={tipoModal}product={selectedProduct} onEdit={handleEditProduct}></ProductosModal>
             </Modal>
         </>
     )
