@@ -40,3 +40,18 @@ export const updateProduct = async (productId, updatedData) => {
     return await response.json()
   }
 }
+
+//Funcion para crear los productos 
+export const createProduct = async (productData) => {
+  const response = await fetch(`${baseUrl}/products`, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(productData),
+  });
+
+  if (response.status === 201) {
+    return await response.json();
+  } else {
+    throw new Error('No se pudo crear el producto');
+  }
+};
