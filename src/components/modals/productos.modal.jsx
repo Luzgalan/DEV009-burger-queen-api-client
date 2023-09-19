@@ -17,7 +17,7 @@ const ProductosModal = ({type, product, onClose, onSave}) => {
   };
 
   const handleSave = () => {
-    onSave(type === "Crear", formData);
+    onSave(type === "Registrar", formData);
     onClose();
   };
     return (
