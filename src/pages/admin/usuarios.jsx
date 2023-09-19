@@ -29,8 +29,8 @@ const [render, setRender] = useState(false)
    }
    const ocultarModal = () => {
        setShowModal(false)
-
    }
+
 
 //funcion para eliminar 
 const showAlertdelete = (user) => {
@@ -107,7 +107,7 @@ const showAlertdelete = (user) => {
         </div>
     </div>
     <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
-    <UsuarioModal type={tipoModal}></UsuarioModal>
+    <UsuarioModal type={tipoModal}  ></UsuarioModal>
 </Modal>
  </>
   );
