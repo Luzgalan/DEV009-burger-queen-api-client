@@ -7,6 +7,7 @@ import { getAllProductos, deleteAllProducts, updateProduct } from "../../service
 import Swal from 'sweetalert2';
 
 
+
 const ProductosPage = () => {
 
 
@@ -62,14 +63,21 @@ useEffect(()=>{
           })
       };
 
-      const handleEditProduct = async (updatedData) => {
+      const handleEditProduct = async (isCreate, updatedData) => {
         try {
-          const updatedProduct = await updateProduct(selectedProduct.id, updatedData);
+            const completeData = {
+                ...selectedProduct,
+                ...updatedData
+            };
+          console.log(completeData, "completeData"); 
+          const updatedProduct = await updateProduct(selectedProduct.id, completeData);
+          console.log(updatedProduct, "updatedProduct");  
           setProductos((prevProductos) => {
             const updatedProducts = prevProductos.map((product) => {
               if (product.id === updatedProduct.id) {
                 // Si el ID coincide, reemplazamos el producto con el actualizado
-                return updateProduct;
+                //Crear el if 
+                return updatedProduct;
               }
               return product;
             });
@@ -106,7 +114,7 @@ useEffect(()=>{
 
                                 </tr>
                             </thead>
-                            <tbody>
+                             <tbody>
                                 {
                                     productos.map(producto=> (
                                         <tr key={producto.id}>
@@ -133,7 +141,7 @@ useEffect(()=>{
                 </div>
             </div>
             <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
-                <ProductosModal type={tipoModal}product={selectedProduct} onEdit={handleEditProduct}></ProductosModal>
+                <ProductosModal type={tipoModal}product={selectedProduct} onEdit={handleEditProduct} onClose={ocultarModal} onSave={handleEditProduct} ></ProductosModal>
             </Modal>
         </>
     )

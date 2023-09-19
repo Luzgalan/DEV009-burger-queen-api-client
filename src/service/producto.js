@@ -2,6 +2,7 @@ const token = localStorage.getItem('token');
 
 const headers = {
   'Authorization': `Bearer ${token}`, 
+  "Content-Type": "application/json",
 };
 
 const baseUrl = 'http://127.0.0.1:8080'
