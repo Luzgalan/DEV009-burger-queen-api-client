@@ -3,6 +3,7 @@ const token = localStorage.getItem('token')
 
 const headers = {
   'Authorization': `Bearer ${token}`, // Puedes agregar otros encabezados personalizados aquí
+  'Content-Type': 'application/json',
 };
 
 // const baseUrl = 'https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0'
@@ -28,8 +29,9 @@ export const deleteAllUsers = async (id) => {
 }
 
 //funcion para consumir el endPoint de crear usuario
-export const postUsers = async (id) => {
-  const response = await fetch(`${baseUrl}/users/${id}`, { method: 'POST', headers: headers })
+export const postUsers = async (data) => {
+
+  const response = await fetch(`${baseUrl}/users`, { method: 'POST', headers: headers, body: JSON.stringify(data) })
   if (response.status == 200) {
     return await response.json()
   }

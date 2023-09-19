@@ -1,6 +1,8 @@
 import { Button, Form, FormGroup, Modal } from "react-bootstrap";
 import  PropTypes  from "prop-types"
 import { useState } from "react";
+import { postUsers } from "../../service/usuario/usuarios";
+import Swal from "sweetalert2";
 
 
 
@@ -11,18 +13,20 @@ const UsuarioModal = ({type}) => {
     const [email, setEmail] = useState("");
     const [tipo, setTipo] = useState("");
 
-console.log(type)
 
 
     const save = (e)=> {
     e.preventDefault();
-  const objeto ={
-    "email": email,
-    "password": '1234',
-    "role": tipo,
-    "name":name
+  const dataPost ={
+    email: email,
+    password: '1234',
+    role: tipo,
+    name:name
   }
-console.log(objeto)
+  postUsers(dataPost).then(()=>{
+    Swal.fire('Usuario creado con éxito!', '', 'success')
+    //Limpieza de datos
+  })
     }
 
 
@@ -47,9 +51,9 @@ console.log(objeto)
       <Form.Label>Puesto</Form.Label>
       <Form.Select aria-label="Select de tipos"  name="role"  value={tipo} onChange={(e) =>  setTipo(e.target.value) }>
       <option>Tipo </option>
-      <option value="1">Chef</option>
-      <option value="2">Administrador</option>
-      <option value="3">Mesero</option>
+      <option value="cocinero">Chef</option>
+      <option value="administrador">Administrador</option>
+      <option value="mesero">Mesero</option>
     </Form.Select>
     </FormGroup>
       
