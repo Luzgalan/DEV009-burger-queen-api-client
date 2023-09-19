@@ -41,6 +41,9 @@ const showAlertdelete = (user) => {
         showCancelButton: false,
         confirmButtonText: 'Sí',
         denyButtonText: `No`,
+        customClass: {
+          confirmButton: 'custom-button',
+      }
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {

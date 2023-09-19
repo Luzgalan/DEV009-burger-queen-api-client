@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap"
 import { Modal } from "react-bootstrap";
 import ProductosModal from "../../components/modals/productos.modal";
-import { getAllProductos } from "../../service/producto";
+import { getAllProductos, deleteAllProducts } from "../../service/producto";
+//import { render } from "react-dom";
+import Swal from 'sweetalert2';
 
 
 const ProductosPage = () => {
@@ -14,12 +16,14 @@ const ProductosPage = () => {
     const [tipoModal, setTipoModal] = useState('')
 
     const [productos,setProductos]= useState([])
+    const [render,setRender]= useState([])
  
 //funcion useEfect para hacer la peticion cuando cargue la pagina 
 useEffect(()=>{
  //consumir servicio 
  getAllProductos().then(respon=> setProductos(respon));
-},[])
+},[render])
+
 
   //funciones para abrir modal
     const mostrarModal = (type) => {
@@ -30,6 +34,29 @@ useEffect(()=>{
         setShowModal(false)
 
     }
+
+    const showAlertdeleteForProducts = (product) => {
+        //console.log(user)
+        Swal.fire({
+            title: `Estas seguro de eliminar al producto: ${product.name}?`,
+            showDenyButton: true,
+            showCancelButton: false,
+            confirmButtonText: 'Sí',
+            denyButtonText: `No`,
+            customClass: {
+                confirmButton: 'custom-button',
+            }
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                deleteAllProducts(product.id).then(()=>{
+                    Swal.fire('Producto eliminado con éxito!', '', 'success')
+                    setRender(!render)
+                })
+             
+            } 
+          })
+      };
 
     return (
         <>
@@ -67,9 +94,9 @@ useEffect(()=>{
                                         <button onClick={() => mostrarModal('Editar')}  type="button" className="btn btn-success me-1" aria-label="Left Align">
                                             <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Editar
                                         </button>
-                                        <button type="button" className="btn btn-danger ms-1" aria-label="Left Align">
-                                            <span className="fa fa-trash fa-lg" aria-hidden="true"></span> Eliminar
-                                        </button>
+                                        <button  onClick={()=> showAlertdeleteForProducts(producto) } type="button" className="btn btn-danger ms-1" aria-label="Left Align" >
+                                         <span className="fa fa-trash fa-lg" aria-hidden="true"></span> Eliminar
+                                        </button>   
                                     </td>
                                         </tr>
                                     ))
