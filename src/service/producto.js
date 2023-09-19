@@ -1,7 +1,29 @@
+const token = localStorage.getItem('token'); 
+
+const headers = {
+  'Authorization': `Bearer ${token}`, 
+};
+
+const baseUrl = 'http://127.0.0.1:8080'
+
+//Funcion para obtener todos los productos 
 export const getAllProductos = async () => {
-  const baseUrl = 'https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0'
-  const response = await fetch(`${baseUrl}/products?_page=1&_limit=10`)
-  const data = await response.json()
-  return data
+  const response = await fetch(`${baseUrl}/products?_page=1&_limit=10`, { method: 'GET', headers: headers })
+
+  if (response.status == 200) {
+    return await response.json()
+  }
+
 }
 
+//Funcion para eliminar los productos 
+
+export const deleteAllProducts = async (productId) => {
+  const response = await fetch(`${baseUrl}/products/${productId}`, { method: 'DELETE', headers: headers })
+  if (response.status == 200) {
+    return await response.json()
+  }
+}
+
+
+//Funcion para editar los productos
