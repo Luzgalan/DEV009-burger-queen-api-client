@@ -2,6 +2,8 @@
 // import { Button } from 'react-bootstrap';
 import { useState } from "react";
 import {  useNavigate } from 'react-router-dom'; // Importa BrowserRouter y useHistory
+import { loginAuth } from "../service/auth.js/auth";
+import Swal from "sweetalert2";
 
 
 function LoginLayout() {
@@ -13,35 +15,16 @@ function LoginLayout() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Enviar credenciales al servidor mock API
-    const response = await fetch('http://127.0.0.1:8080/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    
-    if (response.ok) {
-      // Si la respuesta es exitosa, asumimos que el usuario está autenticado
-      const data = await response.json();
-      console.log(data)
-
-      // Almacenar el token en el estado o en las cookies/local storage
-      const token = data.accessToken;
-
-      localStorage.setItem('token', token)
-      //
-      localStorage.setItem('user',JSON.stringify(data.user))
-      console.log(token)
-        navigateTo('/admin/usuarios')
-      
-      // Redirigir al usuario a la página protegida o realizar otras acciones
-    } else {
-      // Manejar errores de autenticación, como credenciales incorrectas
-    }
+    loginAuth({email,password}).then(response=>{
+        if(response.status !=200){
+            Swal.fire(response.data, '', 'error')
+            return 
+        }
+          localStorage.setItem('token', response.data.accessToken)
+          localStorage.setItem('user', JSON.stringify(response.data.user))
+          navigateTo('/admin/')
+        console.log(response)})
+  
   };
  
   return (
