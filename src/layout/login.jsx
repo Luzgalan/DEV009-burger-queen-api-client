@@ -35,12 +35,12 @@ function LoginLayout() {
       localStorage.setItem('token', token)
       //
       localStorage.setItem('user',JSON.stringify(data.user))
-      console.log(token)
-        navigateTo('/admin/usuarios')
+      navigateTo('/admin/ordenar');
+      
       
       // Redirigir al usuario a la página protegida o realizar otras acciones
     } else {
-      // Manejar errores de autenticación, como credenciales incorrectas
+      console.error('Error de autenticacion'); 
     }
   };
  
