@@ -15,7 +15,7 @@ function LoginLayout() {
     e.preventDefault();
 
     // Enviar credenciales al servidor mock API
-    const response = await fetch('https://virtserver.swaggerhub.com/ssinuco/BurgerQueenAPI/2.0.0/login', {
+    const response = await fetch('http://127.0.0.1:8080/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,9 +33,11 @@ function LoginLayout() {
       const token = data.accessToken;
 
       localStorage.setItem('token', token)
+      //
+      localStorage.setItem('user',JSON.stringify(data.user))
       console.log(token)
         navigateTo('/admin/usuarios')
-
+      
       // Redirigir al usuario a la página protegida o realizar otras acciones
     } else {
       // Manejar errores de autenticación, como credenciales incorrectas
