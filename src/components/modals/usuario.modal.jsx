@@ -1,36 +1,51 @@
 import { Button, Form, FormGroup, Modal } from "react-bootstrap";
 import  PropTypes  from "prop-types"
-import { useState } from "react";
-import { postUsers } from "../../service/usuario/usuarios";
+
+import { postUsers, updateUsers } from "../../service/usuario/usuarios";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 
+const UsuarioModal = ({type,hasChange,usuarioEditar }) => {
 
-const UsuarioModal = ({type}) => {
-    // declaracion de una constante para acceder al dom de name 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [tipo, setTipo] = useState("");
+console.log(usuarioEditar)
 
-
-
+    const [email, setEmail] = useState(type=='Editar'?usuarioEditar.email:'');
+    const [role, setRole] = useState(type=='Registrar'?'':usuarioEditar.role);
+    const [name, setName] = useState(type=='Editar'?usuarioEditar.name:'');
+    
+    
+    
     const save = (e)=> {
-    e.preventDefault();
-  const dataPost ={
+     e.preventDefault();
+    const dataPost ={
     email: email,
     password: '1234',
-    role: tipo,
+    role: role ,
     name:name
   }
-  postUsers(dataPost).then(()=>{
-    Swal.fire('Usuario creado con éxito!', '', 'success')
-    //Limpieza de datos
-  })
+
+if(type==='Registrar'){
+    postUsers(dataPost).then(()=>{
+        Swal.fire('Usuario creado con éxito!', '', 'success')
+        //Limpieza de datos
+        hasChange()
+      })
+}else {
+    updateUsers(usuarioEditar.id,dataPost).then(()=>{
+        Swal.fire('Usuario actualizado con éxito!', '', 'success')
+        //Limpieza de datos
+        hasChange()
+      })
+}
+
+ 
+
+
+
     }
 
-
-   
     return (
         <div className="bg-dark text-white">
              <Form  onSubmit={save} >
@@ -49,7 +64,7 @@ const UsuarioModal = ({type}) => {
       </Form.Group>
       <FormGroup>
       <Form.Label>Puesto</Form.Label>
-      <Form.Select aria-label="Select de tipos"  name="role"  value={tipo} onChange={(e) =>  setTipo(e.target.value) }>
+      <Form.Select aria-label="Select de tipos"  name="role"  value={role} onChange={(e) =>  setRole(e.target.value) }>
       <option>Tipo </option>
       <option value="cocinero">Chef</option>
       <option value="administrador">Administrador</option>
@@ -60,7 +75,7 @@ const UsuarioModal = ({type}) => {
             </Modal.Body>
             <Modal.Footer>
             {type === "Editar" ? (
-          <Button variant="success">Editar usuario</Button>
+          <Button variant="success" type="submit">Editar usuario</Button>
         ) : (
           <Button variant="success" type="submit" >Crear usuario</Button>
           
@@ -71,8 +86,11 @@ const UsuarioModal = ({type}) => {
         </div>
     );
 }
-UsuarioModal.propTypes ={
-    type:PropTypes.string.isRequired
-}
+UsuarioModal.propTypes = {
+    type: PropTypes.string.isRequired,
+    hasChange:PropTypes.any,
+    usuarioEditar:PropTypes.any
+    
+  };
 
 export default UsuarioModal
