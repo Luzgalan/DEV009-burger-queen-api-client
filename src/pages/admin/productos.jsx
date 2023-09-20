@@ -141,7 +141,7 @@ useEffect(()=>{
                 </div>
             </div>
             <Modal dialogClassName="custom-modal" show={showModal} onHide={ocultarModal} variant="success">
-                <ProductosModal type={tipoModal}product={selectedProduct} onEdit={handleEditProduct} onClose={ocultarModal} onSave={handleEditProduct} ></ProductosModal>
+                <ProductosModal type={tipoModal}  product={selectedProduct} onEdit={handleEditProduct} onClose={ocultarModal} onSave={handleEditProduct} ></ProductosModal>
             </Modal>
         </>
     )
