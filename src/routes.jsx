@@ -10,32 +10,33 @@ import ChefPage from "./pages/chef/chefPage";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element: <LoginLayout/>
+        element: <LoginLayout />
     },
-    
+
     {
         path: '/admin',
-        element: <AdminLayout/>,
-        children:[
+        element: <AdminLayout />,
+        children: [
             {
                 path: '/admin/usuarios',
-                element: <UsuarioPage/>
+                element: <UsuarioPage />
             },
             {
                 path: '/admin/productos',
-                element: <ProductosPage/>
+                element: <ProductosPage />
             },
             {
                 path: '/admin/ordenar',
-                element: <OrdenarPages/>
+                element: <OrdenarPages />,
+            
             },
             {
                 path: '/admin/servir',
-                element: <ServirPages/>
+                element: <ServirPages />
             },
             {
                 path: '/admin/chef',
-                element: <ChefPage/>
+                element: <ChefPage />
             },
         ]
     },

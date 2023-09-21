@@ -66,7 +66,7 @@ if(type==='Registrar'){
       <Form.Label>Puesto</Form.Label>
       <Form.Select aria-label="Select de tipos"  name="role"  value={role} onChange={(e) =>  setRole(e.target.value) }>
       <option>Tipo </option>
-      <option value="cocinero">Chef</option>
+      <option value="chef">Chef</option>
       <option value="administrador">Administrador</option>
       <option value="mesero">Mesero</option>
     </Form.Select>

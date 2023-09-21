@@ -8,6 +8,7 @@ Los aprendizajes de este sprint 3:
 - Hacer pruebas de las peticiones HTTP con insomnia
 - Guardar el token en el local storage
 - Aprendimos a crear una rama desde un issue 
+- 
 
 ### Added
 
