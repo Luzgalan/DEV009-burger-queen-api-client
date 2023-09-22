@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap"
-import { Modal } from "react-bootstrap";
+import { Modal, Col, Image } from "react-bootstrap";
 import ProductosModal from "../../components/modals/productos.modal";
 import { getAllProductos, deleteAllProducts, updateProduct, createProduct } from "../../service/producto";
 //import { render } from "react-dom";
@@ -122,6 +122,7 @@ const ProductosPage = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Nombre</th>
+                                    <th>Imagen</th>
                                     <th>Categoria</th>
                                     <th>Precio</th>
                                     <th className='text-end'>Acciones</th>
@@ -134,6 +135,7 @@ const ProductosPage = () => {
                                         <tr key={producto.id}>
                                             <td key={producto.id}>{producto.id} </td>
                                             <td key={producto.name}>{producto.name} </td>
+                                            <td key={producto.image}><Col > <Image className="cardImg" src={producto.image} alt={producto.name} rounded /></Col> </td>
                                             <td key={producto.type}>{producto.type} </td>
                                             <td key={producto.price}>{producto.price} </td>
                                             <td className='text-end'>
