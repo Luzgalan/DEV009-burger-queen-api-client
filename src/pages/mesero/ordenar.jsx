@@ -48,7 +48,7 @@ const OrdenarPages = () => {
                 <div className="product-cards">
                     <div className="row mb-5">
                         <div className="col-md-3">
-                            <p>Categoría: </p>
+                            <p>Escoge la categoría: </p>
                         </div>
                         <div className="col-md-3">
                             <Button className="type-product" variant="outline-light" size="lg" onClick={() => filtrarProductos('Desayuno')}>Desayuno</Button>
