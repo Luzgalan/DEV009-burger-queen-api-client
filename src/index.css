@@ -261,10 +261,10 @@ color: #FFFFFF  !important;
 
 /*BOTON DE FILTRADO DE PRODUCTOS DE ACUERDO A SU TIPO */
 
-.type-product {
+/* .type-product {
   border: none !important;
   
-}
+} */
 
 .type-product:active, .type-product:focus {
   background-color: #E7DE0F!important;
@@ -281,6 +281,14 @@ color: #FFFFFF  !important;
   
 }
 
+.product-cards p {
+  color: white;
+  font-size: larger;
+  margin-top: 5%;
+  
+
+}
+
 .order-form {
   border-radius: 20px  !important;
   background-color:rgba(0,0,0, 0.3) !important; 
@@ -294,8 +302,9 @@ margin: 12%;
 }
 
 .product-cards{
-  overflow: hidden;
+  
   margin-left: 10% !important;
+  margin-top: 3%;
 }
 
 
@@ -316,6 +325,7 @@ border: 1px solid rgba(0, 0, 0, 0.00);
 
 .fondo-de-tarjeta {
 background: rgba(0, 0, 0, 0.25) !important;
+
   
 }
 
