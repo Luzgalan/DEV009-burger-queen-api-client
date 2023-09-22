@@ -110,10 +110,10 @@ const OrdenarPages = () => {
                             <tr>
                                 <td>Sandwich de jamon</td>
                                 <td>
-                                    <span className="fa fa-minus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span> 1 <span className="fa fa-plus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span>
+                                    <button><span className="fa fa-minus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span></button> 1 <button><span className="fa fa-plus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span></button>
                                 </td>
                                 <td>$30,00</td>
-                                <td><span className="fa fa-trash fa-lg" style={{ color: "#ffffff" }} aria-hidden="true"></span></td>
+                                <td><button><span className="fa fa-trash fa-lg" style={{ color: "#ffffff" }} aria-hidden="true"></span> </button></td>
                             </tr>
                             <tr>
                                 <td colSpan={2}>Total</td>
@@ -121,6 +121,7 @@ const OrdenarPages = () => {
                             </tr>
                         </tbody>
                     </Table>
+                    <Button variant="success">Enviar a cocina</Button>
                 </div>
             </div>
 
