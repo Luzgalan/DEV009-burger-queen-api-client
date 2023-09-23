@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { useEffect, useState } from 'react';
+import LogoUrl from '../assets/Burguer__2_-removebg-preview.png' 
 
 
 
@@ -58,7 +59,7 @@ const NavbarComponent = () => {
     <Navbar expand="lg" className="bg-body-tertiary navbar-dark">
       <Container>
         <Navbar.Brand >
-            <img className='imgLogo' src="/src/assets/Burguer__2_-removebg-preview.png" alt="" />
+            <img className='imgLogo' src={LogoUrl} alt="" />
         </Navbar.Brand>
         <Navbar.Toggle  aria-controls="basic-navbar-nav" />
         <Navbar.Collapse    id="basic-navbar-nav">

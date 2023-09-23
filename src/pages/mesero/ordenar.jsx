@@ -15,6 +15,7 @@ const OrdenarPages = () => {
     // const [tipoModal, setTipoModal] = useState('')  //Se muestra el modal de acuerdo 
     const [productos, setProductos] = useState([]) //Se crea este estado para mostrar los productos desde la API 
     const [tipoFiltro, setTipoFiltro] = useState(''); //Se crea este estado para el filtro de los productos de acuerdo a su tipo 
+    const [productosSeleccionados, setProductosSeleccionados] = useState([]); // Nuevo estado para los productos seleccionados
 
     /* -------------------------------------------------------------------------- */
     /*                  Constante efecto - Solicita datos al back                 */
@@ -28,18 +29,18 @@ const OrdenarPages = () => {
     /*                             Funciones y metodos                            */
     /* -------------------------------------------------------------------------- */
 
-    // const mostrarModal = (type) => {
-    //     setShowModal(true)
-    //     setTipoModal(type)
-    // }
-    // const ocultarModal = () => {
-    //     setShowModal(false)
 
-    // }
 
     // Actualizar el estado 'tipoFiltro' con el tipo seleccionado
     const filtrarProductos = (tipo) => {
         setTipoFiltro(tipo);
+    };
+
+    const agregarProducto = (producto) => {
+        // Clonar la lista actual de productos seleccionados y agregar el nombre del producto
+        const nuevosProductosSeleccionados = [...productosSeleccionados];
+        nuevosProductosSeleccionados.push(producto.name);
+        setProductosSeleccionados(nuevosProductosSeleccionados);
     };
 
     return (
@@ -58,24 +59,24 @@ const OrdenarPages = () => {
                         </div>
                     </div>
                     <div className="container-products-cards">
-                    <div className="row g-5">
-                        {productos
-                            .filter((producto) => !tipoFiltro || producto.type === tipoFiltro)
-                            .map((producto) => (
-                                <div className="col-xl-3 col-sm-6" key={producto.id}>
-                                    <Card className="fondo-de-tarjeta">
-                                        <div>
-                                            <img className="cardImg1" src={producto.image} alt={producto.name} />
-                                        </div>
-                                        <Card.Body>
-                                            <Card.Title className="texto-tarjeta">{producto.name}</Card.Title>
-                                            <Card.Text className="texto-tarjeta">${producto.price}</Card.Text>
-                                            <Button variant="success">Agregar</Button>
-                                        </Card.Body>
-                                    </Card>
-                                </div>
-                            ))}
-                    </div>
+                        <div className="row g-5">
+                            {productos
+                                .filter((producto) => !tipoFiltro || producto.type === tipoFiltro)
+                                .map((producto) => (
+                                    <div className="col-xl-3 col-sm-6" key={producto.id}>
+                                        <Card className="fondo-de-tarjeta">
+                                            <div>
+                                                <img className="cardImg1" src={producto.image} alt={producto.name} />
+                                            </div>
+                                            <Card.Body>
+                                                <Card.Title className="texto-tarjeta">{producto.name}</Card.Title>
+                                                <Card.Text className="texto-tarjeta">${producto.price}</Card.Text>
+                                                <Button variant="success" onClick={() => agregarProducto(producto)}>Agregar</Button>
+                                            </Card.Body>
+                                        </Card>
+                                    </div>
+                                ))}
+                        </div>
                     </div>
                 </div>
                 <div className="order-form">
@@ -107,14 +108,16 @@ const OrdenarPages = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Sandwich de jamon</td>
-                                <td>
-                                    <button><span className="fa fa-minus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span></button> 1 <button><span className="fa fa-plus-circle fa-lg" style={{ color: "#33540b" }} aria-hidden="true"></span></button>
-                                </td>
-                                <td>$30,00</td>
-                                <td><button><span className="fa fa-trash fa-lg" style={{ color: "#ffffff" }} aria-hidden="true"></span> </button></td>
-                            </tr>
+                            {productosSeleccionados.map((nombreProducto, index) => {
+                                const producto = productos.find((p) => p.name === nombreProducto);
+                                return (
+                                    <tr key={index}>
+                                        <td>{nombreProducto}</td>
+                                        <td>1</td>
+                                        <td>{`$${producto.price}`}</td>
+                                    </tr>
+                                );
+                            })}
                             <tr>
                                 <td colSpan={2}>Total</td>
                                 <td> $90,00</td>
