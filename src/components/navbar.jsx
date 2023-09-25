@@ -66,7 +66,7 @@ const NavbarComponent = () => {
           <Nav  className="ms-auto">
     
           {elementsNavbar}
-          <Nav.Link as={NavLink} onClick={cerrarSesion} >Cerrar sesión</Nav.Link> 
+          <Nav.Link onClick={cerrarSesion} >Cerrar sesión</Nav.Link> 
             {/* <Nav.Link  to="/admin/personas" className={({isActive})=> isActive ? "active" : ""}>            </Nav.Link>
             <Nav.Link  to="/admin/productos">Productos</Nav.Link> */}
 

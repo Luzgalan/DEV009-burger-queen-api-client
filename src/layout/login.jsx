@@ -2,7 +2,7 @@
 // import { Button } from 'react-bootstrap';
 import { useState } from "react";
 import {  useNavigate } from 'react-router-dom'; // Importa BrowserRouter y useHistory
-import { loginAuth } from "../service/auth.js/auth";
+import { loginAuth } from "../service/auth";
 import Swal from "sweetalert2";
 
 

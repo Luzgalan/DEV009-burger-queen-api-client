@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap"
 import { Modal } from "react-bootstrap";
 import UsuarioModal from "../../components/modals/usuario.modal";
-import { deleteAllUsers, getAllUsuario} from "../../service/usuario/usuarios";
+import { deleteAllUsers, getAllUsuario} from "../../service/usuarios";
 import Swal from 'sweetalert2';
 
 const UsuarioPage = () => {
