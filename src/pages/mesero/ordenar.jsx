@@ -2,6 +2,8 @@ import { Button, Card, Form, FormGroup, Table } from "react-bootstrap"
 //import OrdenarModal from "../../components/modals/ordenar.modal";
 import { useState, useEffect } from "react";
 import { getAllProductos } from "../../service/producto";
+import Swal from "sweetalert2";
+import { createOrder } from "../../service/orders";
 
 
 
@@ -11,11 +13,12 @@ const OrdenarPages = () => {
     /*                            Constantes de Estado                            */
     /* -------------------------------------------------------------------------- */
 
-    // const [showModal, setShowModal] = useState(false);
-    // const [tipoModal, setTipoModal] = useState('')  //Se muestra el modal de acuerdo 
     const [productos, setProductos] = useState([]) //Se crea este estado para mostrar los productos desde la API 
     const [tipoFiltro, setTipoFiltro] = useState(''); //Se crea este estado para el filtro de los productos de acuerdo a su tipo 
     const [productosSeleccionados, setProductosSeleccionados] = useState([]); // Nuevo estado para los productos seleccionados
+
+    const [nameClient, setnameClient] = useState('');
+    const [mesa, setMesa] = useState('');
 
     /* -------------------------------------------------------------------------- */
     /*                  Constante efecto - Solicita datos al back                 */
@@ -29,8 +32,36 @@ const OrdenarPages = () => {
     /*                             Funciones y metodos                            */
     /* -------------------------------------------------------------------------- */
 
+    const save = (e) => {
+        e.preventDefault();
+        const dataOrden = {
+            client: nameClient,
+            mesa: mesa,
+            products: productosSeleccionados,
+            status: "pending",
+            dateEntry: Date.now()
 
+        }
 
+        if(dataOrden.client==''){
+            Swal.fire({ text:'Ingrese el nombre del cliente', icon:'warning'}) 
+            return
+        }
+        if(dataOrden.mesa==''){
+            Swal.fire({ text:'Seleccione una mesa', icon:'warning'}) 
+            return
+        }
+        if(dataOrden.products.length == 0){
+            Swal.fire({ text:'Asegurese de seleccionar al menos un producto', icon:'warning'}) 
+            return
+        }
+
+        createOrder(dataOrden).then(()=> {
+            Swal.fire({text:'Orden creada exitosamente', icon: 'success'})
+        })
+        console.log(dataOrden)
+
+    }
     // Actualizar el estado 'tipoFiltro' con el tipo seleccionado
     const filtrarProductos = (tipo) => {
         setTipoFiltro(tipo);
@@ -38,9 +69,31 @@ const OrdenarPages = () => {
 
     const agregarProducto = (producto) => {
         // Clonar la lista actual de productos seleccionados y agregar el nombre del producto
-        const nuevosProductosSeleccionados = [...productosSeleccionados];
-        nuevosProductosSeleccionados.push(producto.name);
-        setProductosSeleccionados(nuevosProductosSeleccionados);
+        // const nuevosProductosSeleccionados = [...productosSeleccionados];
+        // nuevosProductosSeleccionados.push(producto.name);
+        // setProductosSeleccionados(nuevosProductosSeleccionados);
+        const productExist = productosSeleccionados.find((x) => x.name == producto.name)
+
+        if (productExist) {
+            // El producto ya existe en la lista, actualiza la cantidad
+            const nuevosProductosSeleccionados = productosSeleccionados.map((p) => {
+                if (p.name === producto.name) {
+                    return { ...p, cantidad: p.cantidad + 1, pricetotal: Number(p.pricetotal) + Number(producto.price) };
+                } else {
+                    return p;
+                }
+            });
+
+            setProductosSeleccionados(nuevosProductosSeleccionados);
+        } else {
+            // El producto no existe en la lista, agrégalo con cantidad 1
+            producto.cantidad = 1;
+            producto.pricetotal = Number(producto.price)
+            setProductosSeleccionados([...productosSeleccionados, producto]);
+        }
+
+        console.log(productosSeleccionados)
+
     };
 
     return (
@@ -80,14 +133,14 @@ const OrdenarPages = () => {
                     </div>
                 </div>
                 <div className="order-form">
-                    <Form className="form-to-order">
+                    <Form className="form-to-order" onSubmit={save}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Nombre del cliente</Form.Label>
-                            <Form.Control type="text" placeholder="" />
+                            <Form.Control type="text" placeholder="" value={nameClient} onChange={(e) => setnameClient(e.target.value)} />
                         </Form.Group>
                         <FormGroup>
                             <Form.Label>Mesa</Form.Label>
-                            <Form.Select aria-label="Default select example">
+                            <Form.Select aria-label="Default select example" value={mesa} onChange={(e) => setMesa(e.target.value)}>
                                 <option>Número de mesa </option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -95,20 +148,31 @@ const OrdenarPages = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                                 <option value="6">6</option>
-                            </Form.Select>
+                            </Form.Select >
                         </FormGroup>
-                    </Form>
+                   
                     <Table striped hover>
                         <thead>
                             <tr>
                                 <th>Producto </th>
                                 <th>Cantidad</th>
                                 <th >Precio</th>
-                                <th ></th>
+                                <th >Precio total</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {productosSeleccionados.map((nombreProducto, index) => {
+
+                            {
+                                productosSeleccionados.map(product => (
+                                    <tr key={product.id}>
+                                        <td >{product.name} </td>
+                                        <td >{product.cantidad} </td>
+                                        <td >$ {product.price} </td>
+                                        <td >$ {product.pricetotal} </td>
+                                    </tr>
+                                ))
+                            }
+                            {/* {productosSeleccionados.map((nombreProducto, index) => {
                                 const producto = productos.find((p) => p.name === nombreProducto);
                                 return (
                                     <tr key={index}>
@@ -117,14 +181,18 @@ const OrdenarPages = () => {
                                         <td>{`$${producto.price}`}</td>
                                     </tr>
                                 );
-                            })}
+                            })} */}
                             <tr>
-                                <td colSpan={2}>Total</td>
-                                <td> $90,00</td>
+                                <td>Total</td>
+                                <td>$ {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.cantidad, 0)} </td>
+                                <td></td>
+                                <td>$ {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.pricetotal, 0)} </td>
+
                             </tr>
                         </tbody>
                     </Table>
-                    <Button variant="success">Enviar a cocina</Button>
+                    <Button variant="success" type="submit">Enviar a cocina</Button>
+                    </Form>
                 </div>
             </div>
 

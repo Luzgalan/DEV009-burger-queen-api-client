@@ -1,7 +1,7 @@
 import { Button, Form, FormGroup, Modal } from "react-bootstrap";
 import  PropTypes  from "prop-types"
 
-import { postUsers, updateUsers } from "../../service/usuario/usuarios";
+import { postUsers, updateUsers } from "../../service/usuarios";
 import Swal from "sweetalert2";
 import { useState } from "react";
 
