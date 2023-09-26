@@ -55,7 +55,7 @@ const ProductosModal = ({ type, product, onClose, onSave }) => {
               <option value="0">Tipo </option>
               <option value="Desayuno">Desayuno</option>
               <option value="Almuerzo">Almuerzo</option>
-              <option value="Resto de día">Resto de día</option>
+             
             </Form.Select>
           </FormGroup>
 
