@@ -119,7 +119,7 @@ const OrdenarPages = () => {
                                     <div className="col-xl-3 col-sm-6" key={producto.id}>
                                         <Card className="fondo-de-tarjeta">
                                             <div>
-                                                <img className="cardImg1" src={producto.image} alt={producto.name} />
+                                                <img className="cardImg1" src={`/${producto.image}.jpg`} alt={producto.name} />
                                             </div>
                                             <Card.Body>
                                                 <Card.Title className="texto-tarjeta">{producto.name}</Card.Title>
