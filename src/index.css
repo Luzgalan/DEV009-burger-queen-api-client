@@ -293,7 +293,7 @@ color: #FFFFFF  !important;
   border-radius: 20px  !important;
   background-color:rgba(0,0,0, 0.3) !important; 
 color: #FFFFFF  !important;
-margin: 12%;
+margin: 5%;
 
 }
 
@@ -303,7 +303,7 @@ margin: 12%;
 
 .product-cards{
   
-  margin-left: 10% !important;
+  margin-left: 8% !important;
   margin-top: 3%;
 }
 
@@ -338,4 +338,10 @@ font-size: 100% !important;
 .container-products-cards {
   display: flex;
   flex-wrap: wrap;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
