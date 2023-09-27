@@ -22,7 +22,15 @@ function LoginLayout() {
         }
           localStorage.setItem('token', response.data.accessToken)
           localStorage.setItem('user', JSON.stringify(response.data.user))
-          navigateTo('/admin/')
+          if(response.data.user.role=== 'administrador'){
+            navigateTo('/admin/usuarios')
+          }else if (response.data.user.role=== 'mesero'){
+            navigateTo('/admin/ordenar')
+        }else{
+            navigateTo('/admin/chef')
+        }
+
+          
         console.log(response)})
   
   };

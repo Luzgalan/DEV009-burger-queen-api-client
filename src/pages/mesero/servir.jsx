@@ -1,6 +1,20 @@
 import { Table } from "react-bootstrap"
+import { getAllOrdenes } from "../../service/orders"
+import { useEffect, useState } from "react"
 
 const ServirPages = () => {
+
+    const [ordenes, setOrdenes] = useState([]) //Se crea este estado para mostrar las ordenes del la api
+    
+    useEffect(() => {
+        //consumir servicio 
+        getAllOrdenes().then(respon=> {
+            const filterResp = respon.filter((orden)=>orden.status !== 'pending')
+            console.log(respon)
+            setOrdenes(filterResp)
+        } )
+    }, [])
+
     return (
 <>
 <br />
@@ -14,47 +28,29 @@ const ServirPages = () => {
                             <tr>
                                 <th>#</th>
                                 <th>Nombre del cliente</th>
-                                <th>Número de orden</th>
+                                <th>Número de mesa</th>
                                 <th>Estatus</th>
                                 <th className='text-end'>Acciones</th>
 
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Lucía juarez garcía</td>
-                                <td>1 </td>
-                                <td>Listo para servir</td>
-                                <td className='text-end'>
+
+                            {
+                                ordenes.map(order=>(
+                                    <tr key={order.id}>
+                                    <td>{order.id} </td>
+                                    <td>{order.client} </td>
+                                    <td>{order.mesa}</td>
+                                    <td>{order.status}</td>
+                                    <td className='text-end'>
                                     <button type="button" className="btn btn-warning me-1" aria-label="Left Align">
                                         <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Servir
                                     </button>
                                 </td>
-
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Carlos Mendoza Perez</td>
-                                <td>2</td>
-                                <td>Servido</td>
-                                <td className='text-end'>
-
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Lucía juarez garcía</td>
-                                <td>3 </td>
-                                <td>Listo para servir</td>
-                                <td className='text-end'>
-                                    <button type="button" className="btn btn-warning me-1" aria-label="Left Align">
-                                        <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Servir
-                                    </button>
-                                </td>
-
-                            </tr>
+                                    </tr>
+                                ))
+                            }
 
                         </tbody>
                     </Table>
