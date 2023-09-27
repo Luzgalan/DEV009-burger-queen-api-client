@@ -28,6 +28,7 @@
     useEffect(() => {
         //consumir servicio 
         getAllProductos().then(respon => setProductos(respon));
+        setTipoFiltro('Desayuno');
 
     }, [])
 
@@ -191,10 +192,10 @@
                                     productosSeleccionados.map(product => (
                                         <tr key={product.id}>
                                             <td >{product.name} </td>
-                                            <td > <button className="icon-button" onClick={() => reducirCantidad(product)} type="button"><span className="fa fa-circle-minus fa-lg" aria-hidden="true"></span></button>{product.cantidad} <button className="icon-button" onClick={() => agregarProducto(product)} type="button"><span className="fa fa-circle-plus fa-lg" aria-hidden="true"></span></button></td>
+                                            <td > <button className="icon-button" onClick={() => reducirCantidad(product)} type="button"><span className="fa fa-circle-minus fa-lg" style={{color: "#1C8C58"}} aria-hidden="true"></span></button>{product.cantidad} <button className="icon-button" onClick={() => agregarProducto(product)} type="button"><span className="fa fa-circle-plus fa-lg" style={{color: "#1C8C58"}} aria-hidden="true"></span></button></td>
                                             <td >$ {product.price} </td>
                                             <td >$ {product.pricetotal} </td>
-                                            <td> <button className="icon-button" onClick={() => eliminarProducto(product)} type="button"><span className="fa fa-trash-can fa-lg" aria-hidden="true"></span></button> </td>
+                                            <td> <button className="icon-button" onClick={() => eliminarProducto(product)} type="button"><span className="fa fa-trash-can fa-lg" style={{color: "#FFFF"}} aria-hidden="true"></span></button> </td>
                                         </tr>
                                     ))
                                 }
