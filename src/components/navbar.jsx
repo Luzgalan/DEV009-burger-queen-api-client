@@ -67,16 +67,6 @@ const NavbarComponent = () => {
     
           {elementsNavbar}
           <Nav.Link onClick={cerrarSesion} >Cerrar sesión</Nav.Link> 
-            {/* <Nav.Link  to="/admin/personas" className={({isActive})=> isActive ? "active" : ""}>            </Nav.Link>
-            <Nav.Link  to="/admin/productos">Productos</Nav.Link> */}
-
-             {/* <Nav.Link  >    */}
-            
-            {/* </Nav.Link> */}
-            {/* <Nav.Link  >    */}
-           
-            {/* </Nav.Link> */}
-            {/* <Nav.Link  to="/admin/productos">Productos</Nav.Link> */}
             
           </Nav>
         </Navbar.Collapse>
