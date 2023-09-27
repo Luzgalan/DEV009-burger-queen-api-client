@@ -20,12 +20,15 @@ const OrdenarPages = () => {
     const [nameClient, setnameClient] = useState('');
     const [mesa, setMesa] = useState('');
 
+
+  
     /* -------------------------------------------------------------------------- */
     /*                  Constante efecto - Solicita datos al back                 */
     /* -------------------------------------------------------------------------- */
     useEffect(() => {
         //consumir servicio 
         getAllProductos().then(respon => setProductos(respon));
+
     }, [])
 
     /* -------------------------------------------------------------------------- */
@@ -184,7 +187,7 @@ const OrdenarPages = () => {
                             })} */}
                             <tr>
                                 <td>Total</td>
-                                <td>$ {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.cantidad, 0)} </td>
+                                <td> {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.cantidad, 0)} </td>
                                 <td></td>
                                 <td>$ {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.pricetotal, 0)} </td>
 
