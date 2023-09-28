@@ -184,13 +184,13 @@ a.active {
   .imgLogo {
     max-width: 20vh;
   }
-/********************CHEF********************/
+/********************CHEFPAGE.JSX********************/
 
 .header-chef {
   background: url("..\src\assets\Fondo de navbar nueva.png") no-repeat center;
   background-size: cover;
   min-height: 10vh;
-  display: flex;
+  /* display: flex; */
 }
 
 .header-chef img {
@@ -229,7 +229,7 @@ padding-left: 40%;
 .orders-container {
   align-items: stretch;
   justify-content: space-around;
-  display: flex;
+  /* display: flex; */
 }
 
 .chef-container h2 {
@@ -246,6 +246,7 @@ padding-left: 40%;
   border-radius: 20px  !important;
 background: rgba(94, 94, 94, 0.70)  !important; 
 color: #FFFFFF  !important;
+
 }
 
 .card-space{
