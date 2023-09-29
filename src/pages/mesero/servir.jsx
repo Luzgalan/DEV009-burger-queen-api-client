@@ -1,7 +1,6 @@
 import { Table } from "react-bootstrap"
-import { getAllOrdenes, updateOrders } from "../../service/orders"
+import { getAllOrdenes, updateOrden } from "../../service/orders"
 import { useEffect, useState } from "react"
-import { updateUsers } from "../../service/usuarios"
 import Swal from "sweetalert2"
 
 const ServirPages = () => {
@@ -23,11 +22,10 @@ const ServirPages = () => {
             status: "done"
         }
 
-        updateOrders(id,dataUpdate).then(()=>{
+        updateOrden(id,dataUpdate).then(()=>{
             Swal.fire({text:'Orden servida',icon:'success'})
             setRender(!render)
           })
-        console.log(dataUpdate)
     }
 
     return (
