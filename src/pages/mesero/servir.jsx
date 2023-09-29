@@ -1,11 +1,12 @@
 import { Table } from "react-bootstrap"
-import { getAllOrdenes } from "../../service/orders"
+import { getAllOrdenes, updateOrden } from "../../service/orders"
 import { useEffect, useState } from "react"
+import Swal from "sweetalert2"
 
 const ServirPages = () => {
 
     const [ordenes, setOrdenes] = useState([]) //Se crea este estado para mostrar las ordenes del la api
-    
+    const [render, setRender] = useState(false);
     useEffect(() => {
         //consumir servicio 
         getAllOrdenes().then(respon=> {
@@ -13,7 +14,19 @@ const ServirPages = () => {
             console.log(respon)
             setOrdenes(filterResp)
         } )
-    }, [])
+    }, [render])
+
+
+    const UpdateStatus = (id) => {
+        const dataUpdate = {
+            status: "done"
+        }
+
+        updateOrden(id,dataUpdate).then(()=>{
+            Swal.fire({text:'Orden servida',icon:'success'})
+            setRender(!render)
+          })
+    }
 
     return (
 <>
@@ -42,10 +55,11 @@ const ServirPages = () => {
                                     <td>{order.id} </td>
                                     <td>{order.client} </td>
                                     <td>{order.mesa}</td>
-                                    <td>{order.status}</td>
+                                    <td>{order.status == 'done' ? 'Servido': 'Listo para servir'}</td>
                                     <td className='text-end'>
-                                    <button type="button" className="btn btn-warning me-1" aria-label="Left Align">
-                                        <span className="fa fa-user-edit fa-lg" aria-hidden="true"></span> Servir
+
+                                    <button  onClick={() => UpdateStatus(order.id)} type="button"  hidden={order.status=='done'} className="btn btn-warning me-1" aria-label="Left Align">
+                                        <span className="fa fa-user-edit fa-lg" aria-hidden="true"  ></span> Servir
                                     </button>
                                 </td>
                                     </tr>
