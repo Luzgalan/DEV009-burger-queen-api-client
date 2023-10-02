@@ -6,6 +6,7 @@ import ProductosPage from "./pages/admin/productos";
 import OrdenarPages from "./pages/mesero/ordenar";
 import ServirPages from "./pages/mesero/servir";
 import ChefPage from "./pages/chef/chefPage";
+import OrdenesChef from "./pages/admin/ordenesChef";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: '/admin/chef',
                 element: <ChefPage />
+            },
+            {
+                path: '/admin/ordeneschef',
+                element: <OrdenesChef />
             },
         ]
     },

@@ -65,3 +65,5 @@ export const updateUsers = async (id, data) => {
     return await response.json()
   }
 }
+
+

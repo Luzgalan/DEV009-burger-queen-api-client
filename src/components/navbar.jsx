@@ -28,11 +28,14 @@ const NavbarComponent = () => {
       <>
         <Nav.Link as={NavLink} to="/admin/usuarios">Usuarios</Nav.Link>
         <Nav.Link as={NavLink} to="/admin/productos">Productos</Nav.Link>
+        <Nav.Link as={NavLink} to="/admin/ordeneschef">Ordenes</Nav.Link>
       </>
     );
   } else if (user && user.role === 'chef') {
     elementsNavbar = (
+      <>
       <Nav.Link as={NavLink} to="/admin/chef">Chef</Nav.Link>
+      </>
     );
   } else {
     elementsNavbar = (
