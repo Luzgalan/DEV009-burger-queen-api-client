@@ -42,7 +42,7 @@ const ProductosPage = () => {
     }
 
     const showAlertdeleteForProducts = (product) => {
-        //console.log(user)
+        
         Swal.fire({
             title: `Estas seguro de eliminar al producto: ${product.name}?`,
             showDenyButton: true,
@@ -136,7 +136,7 @@ const ProductosPage = () => {
                                         <tr key={producto.id}>
                                             <td key={producto.id}>{producto.id} </td>
                                             <td key={producto.name}>{producto.name} </td>
-                                            <td key={producto.image}><Col > <Image className="cardImg" src={`/${producto.image}.jpg`} alt={producto.name} rounded /></Col> </td>
+                                            <td key={producto.image}><Col > <Image className="cardImg" src={`/${producto.image}.png`} alt={producto.name} rounded /></Col> </td>
                                             <td key={producto.type}>{producto.type} </td>
                                             <td key={producto.price}>{producto.price} </td>
                                             <td className='text-end'>

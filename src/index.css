@@ -346,10 +346,7 @@ font-size: 100% !important;
 
 }
 
-.container-products-cards {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 .icon-button {
   background: none;

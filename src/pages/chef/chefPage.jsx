@@ -12,7 +12,7 @@ const ChefPage = () => {
     useEffect(() => {
         // Consumir servicio
         getAllOrdenes().then(respon => {
-            const filterRespPendientes = respon.filter((orden) => orden.status === "pending");
+            const filterRespPendientes = respon.filter((orden) => orden.status === "delivering");
             setOrdenesPendientes(filterRespPendientes);
         });
     }, []);

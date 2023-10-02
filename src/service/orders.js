@@ -65,3 +65,36 @@ export const updateOrden = async (orderId, updatedData) => {
     throw error;
   }
 };
+
+//Funcion para eliminar la orden 
+
+export const deleteOrder = async (orderId) => {
+  try {
+    const response = await fetch(`${baseUrl}/orders/${orderId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status === 200) {
+      // Orden eliminada con éxito
+      const responseData = await response.json();
+      return responseData;
+    } else if (response.status === 404) {
+      // Orden no encontrada
+      return { error: 'La orden no existe' };
+    } else if (response.status === 401) {
+      // No autorizado, token inválido, etc.
+      return { error: 'No autorizado para eliminar la orden' };
+    } else {
+      // Otro error
+      return { error: 'Error al eliminar la orden' };
+    }
+  } catch (error) {
+    // Error de red u otro error
+    console.error('Error al eliminar la orden:', error);
+    return { error: 'Error de red al eliminar la orden' };
+  }
+};
