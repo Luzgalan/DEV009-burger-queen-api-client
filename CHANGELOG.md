@@ -62,6 +62,38 @@ Las funcionalidades del sprint:
 
 - Las imagenes se encuentran en la carpeta public, para que no tenga problemas al mostrar la imagen del producto 
 
+## <1.0.2> - <2023-10-04>
+
+### Sprint learnings
+
+Los aprendizajes de este sprint 5: 
+
+- Revisión de tests unitarios 
+- Revisión de material para desplegar la página 
+
+
+
+
+### Added
+
+Las funcionalidades del sprint: 
+
+- Se incluyó el componente de ordenes 
+- Funcionalidad al botón de Servir order desde la credencial de mesero
+- Funcionalidad al componenente de chef
+- Funcionamiento del botón orden lista cambio de status de pending a delivering
+- Incluir en la pagina de chefpage los pedidos pendientes desde la API, pendiente incluir el diseño
+- Uso del endpoint Patch 
+
+
+### Changed
+
+- Se cambiaron las imágenes por una sin fondo 
+- Se cambio el tamaño de las tarjetas de los productos para que sean responsive 
+
+
+
+
 
 
 .
