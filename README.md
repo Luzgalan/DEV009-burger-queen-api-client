@@ -35,7 +35,7 @@ Caracteristicas principales:
 
 Login:
 - Ingresar usuario y contraseña.
-- Se muestra el menu de acciones de acuerdo a cada perfil (Administrador, chef y mesero)
+- Se muestra el menu de acciones de acuerdo a cada perfil (Administrador, chef y mesero) si las credenciales son correctas.
 
 Gestión de Usuarios (perfil administrador):
 
@@ -52,14 +52,14 @@ Catálogo de Productos:
 
 Ordenes (Perfil mesero):
 
-- Agregar productos al componente de ordenes 
-- Eliminar los productos 
+- Agregar productos al pedido.
+- Agregar el nombre del cliente.
+- Eliminar los productos agregados al pedido.
+- Ver resumen y total de la compra.
+- Enviar pedido a cocina (guardar en api-mock)
+- Ver la lista de ordenes y los estados  
 
-Permitir a los empleados de servicio tomar pedidos de los clientes en tiempo real.
-Agregar productos a los pedidos, especificando la cantidad y las preferencias del cliente (por ejemplo, sin cebolla).
-Enviar pedidos a la cocina, lo que notifica al personal de cocina sobre los elementos que deben preparar.
-Actualizar el estado de los pedidos a medida que avanzan (en proceso, listo para servir, entregado, etc.).
-Generar facturas y realizar transacciones de pago si es necesario.
+
 
 
 
