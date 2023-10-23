@@ -138,6 +138,16 @@ margin-top: 25px;
 
 }
 
+@media (max-width: 768px) {
+  .parte-izquierda {
+    display: none; /* Oculta la parte izquierda en dispositivos móviles */
+  }
+
+  .parte-derecha {
+    border-radius: 20px; /* Aplica un border-radius homogéneo al lado derecho en dispositivos móviles */
+  }
+}
+
 /********************ADMINISTRADOR********************/
 
 .header .navbar {

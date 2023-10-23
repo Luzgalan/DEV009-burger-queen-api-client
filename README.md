@@ -2,71 +2,79 @@
 
 Colaboradoras: Katherine Cevallos y Luz María Vázquez
 
+<img src="./public/Imagen-readme.png">
+
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones](#4-consideraciones)
-* [5. Criterios de aceptación del proyecto](#5-criterios-de-aceptación-del-proyecto)
-* [6. Despliegue](#6-despliegue)
-* [7. Pistas / tips](#7-pistas--tips)
+* [1. Introducción del Proyecto](#1-introducción-del-proyecto)
+* [2. Indicaciones generales](#2-indicaciones-generales)
+* [3. Objetivos generales del proyecto](#3-objetivos-de-generales-del-proyecto)
+* [4. Demostración del proyecto](#4-demostración-del-proyecto)
+
+
 
 ***
 
-## 1. Definición del Producto
+## 1. Introducción del Proyecto
 
 
-¡Bienvenido a Burger Queen Api Client ,es una aplicación PWA diseñada para la administración de los procesos de un restaurant. Esta aplicación tiene como objetivo principal ofrecer al usuario final  una forma conveniente y personalizada de gestionar a los usuarios y productos, crear ordenes, enviar las ordenes a cocina etc. 
+¡Te damos la bienvenida a Burger Queen Api Client! Nuestra aplicación PWA ha sido meticulosamente diseñada para optimizar la gestión interna de restaurantes, brindando soluciones específicas para meseros, chefs y administradores. Aquí, en Burger Queen, entendemos la importancia de simplificar tus operaciones diarias y mejorar la experiencia del usuario.
 
-## 2. Resumen del proyecto
+Nuestra aplicación tiene un enfoque claro: ofrecerte una herramienta conveniente y altamente personalizable para gestionar a tus usuarios y productos, crear órdenes de manera eficiente y enviarlas directamente a la cocina. Sabemos que la gestión de un restaurante puede ser un desafío, y estamos aquí para hacerlo más sencillo y eficaz para ti.
 
-Un pequeño restaurante de hamburguesas, que está creciendo, necesita un
-sistema a través del cual puedan tomar pedidos usando una _tablet_, y enviarlos
-a la cocina para que se preparen ordenada y eficientemente.
+Descubre cómo Burger Queen Api Client puede mejorar tus procesos internos y brindar un servicio de alta calidad a tus clientes. ¡Bienvenido a una forma más inteligente de administrar tu restaurante!
 
-El objetivo principal de este Aplicación web es proporcionar a los restaurantes una plataforma que les permita gestionar eficientemente a sus usuarios, administrar su catálogo de productos, así como tomar pedidos y enviarlos a la cocina de manera organizada y rápida.
+## 2. Indicaciones Generales
 
+- Para el ingreso se pueden usar las siguientes credenciales: 
 
+| Credencial |Correo electrónico| Contraseña |
+|---------------------------------|------------------|------------|
+| Administrador |  anita.borg@systers.xyz  | 123456
+| Mesero        | katycevallos127@gmail.com | 1234
+| Chef          | aleja@gmail.com | 1234
+
+- Para la creación de productos utilizar los siguientes nombres en el input de imagen: 
+
+| Nombre del producto | Texto (input imagen)
+|---------------------|------------------|
+| Agua | agua 
+| Alitas | alitas
+| Aros de cebolla | aros 
+| Cafe leche | cafeleche
+| Coca cola | coca cola
+| Hamburguesa doble | hamburguesa doble    
+| Jugo de naranja | jugo de naranja 
+| Papas fritas | papas fritas  
+| pepsi | pepsi 
+| Sandwich de jamón y queso | sandwich
 
 ## 3. Objetivos generales del proyecto
 
-Caracteristicas principales:
 
-Login:
-- Ingresar usuario y contraseña.
-- Se muestra el menu de acciones de acuerdo a cada perfil (Administrador, chef y mesero) si las credenciales son correctas.
+### Catálogo de Productos (Perfil Administrador)
+- Creación de nuevos productos para el menú del restaurante.
+- Edición de los productos del menú, incluyendo la posibilidad de asociar imágenes para una presentación visual atractiva.
+- Eliminación de productos.
+- Eliminación de órdenes de compra.
 
-Gestión de Usuarios (perfil administrador):
-
-- Crear nuevos usuarios (Administrador, chef y mesero)
-- Editar la información de los usuarios.
-- Eliminar usuarios.
-
-Catálogo de Productos (perfil administrador):
-
-- Crear  productos
-- Editar productos del menú del restaurante,
-- Asociar imágenes a los productos para una presentación visual atractiva.
-- Eliminar productos.
-- Eliminar las ordenes.
-
-Ordenes (Perfil mesero):
-
+### Órdenes (Perfil Mesero)
 - Agregar productos al pedido.
-- Agregar el nombre del cliente.
-- Eliminar los productos agregados al pedido.
-- Ver resumen y total de la compra.
-- Enviar pedido a cocina (guardar en api-mock)
-- Ver la lista de ordenes y los estados  
+- Incluir el nombre del cliente en el pedido.
+- Eliminación de productos previamente añadidos al pedido.
+- Visualización del resumen y del total de la compra.
+- Envío del pedido a la cocina (guardado en una API simulada).
+- Visualización de la lista de órdenes y sus estados.
 
+### Pedidos (Perfil Chef)
+- Visualización de los pedidos pendientes.
+- Cambio del estado de las órdenes pendientes a "Enviado".
+- Todas las órdenes con estado "Enviado" son transferidas al perfil del Mesero para su entrega.
 
-  Pedidos  (Perfil chef):
+## 3. Demostración del proyecto
 
-- Visualiza los pedidos pendientes.
-- Cambia el estado de la orden pendiente a enviado.
-- Todas las ordenes con estado (delivering) son enviados al perfil del mesero.
+Video demostrativo del proyecto 
 
-
+- [Video loom](https://www.loom.com/share/e9eb80a350814b738664c38c0246701e?sid=6718cb51-c66e-419f-bae0-55c563988881)
 
 
