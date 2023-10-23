@@ -12,6 +12,7 @@ const ChefPage = () => {
     useEffect(() => {
         // Consumir servicio
         getAllOrdenes().then(respon => {
+            console.log({respon})
             const filterRespPendientes = respon.filter((orden) => orden.status === "pending");
             setOrdenesPendientes(filterRespPendientes);
         });
