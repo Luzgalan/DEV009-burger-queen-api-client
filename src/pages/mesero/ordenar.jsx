@@ -199,16 +199,7 @@
                                         </tr>
                                     ))
                                 }
-                                {/* {productosSeleccionados.map((nombreProducto, index) => {
-                                    const producto = productos.find((p) => p.name === nombreProducto);
-                                    return (
-                                        <tr key={index}>
-                                            <td>{nombreProducto}</td>
-                                            <td>1</td>
-                                            <td>{`$${producto.price}`}</td>
-                                        </tr>
-                                    );
-                                })} */}
+                              
                                 <tr>
                                     <td>Total</td>
                                     <td> {productosSeleccionados.length == 0 ? '0' : productosSeleccionados.reduce((prev, next) => prev + next.cantidad, 0)} </td>

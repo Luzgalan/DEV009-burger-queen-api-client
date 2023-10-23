@@ -1,6 +1,7 @@
 const baseUrl = 'http://127.0.0.1:8080'
 
 export const createOrder = async (orderData) => {
+  console.log({orderData})
   const response = await fetch(`${baseUrl}/orders`, {
     method: 'POST',
     headers: {
@@ -20,7 +21,7 @@ export const createOrder = async (orderData) => {
 
 //Funcion para obtener todos las ordenes 
 export const getAllOrdenes = async () => {
-  const response = await fetch(`${baseUrl}/orders?_page=1&_limit=10`, {
+  const response = await fetch(`${baseUrl}/orders`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
