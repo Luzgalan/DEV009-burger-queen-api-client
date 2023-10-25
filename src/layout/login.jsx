@@ -4,6 +4,7 @@ import { useState } from "react";
 import {  useNavigate } from 'react-router-dom'; // Importa BrowserRouter y useHistory
 import { loginAuth } from "../service/auth";
 import Swal from "sweetalert2";
+import LogoUrl from '../assets/Burguer__2_-removebg-preview.png' 
 
 
 function LoginLayout() {
@@ -38,12 +39,12 @@ function LoginLayout() {
   return (
     
     <div className='Background-Login'>
-      <img src='..\src\assets\Diseño sin título (2).png'></img>
+      <img src='..\public\Diseño sin título (2).png'></img>
       <div className="parte-izquierda">
-        <img src="..\src\assets\pexels-valeria-boltneva-1199956.jpg" alt="Logo de la empresa" />
+        <img src="..\public\pexels-valeria-boltneva-1199956.jpg" alt="Logo de la empresa" />
       </div>
      <div className="parte-derecha">
-        <img src="..\src\assets\Burguer__2_-removebg-preview.png" alt="Logo de la empresa" />
+        <img src={LogoUrl} alt="Logo de la empresa" />
       
       <h2>Bienvenido de nuevo!</h2>
       <form onSubmit={handleSubmit} action="procesar_login.php" method="POST" className="form-group1"> 
