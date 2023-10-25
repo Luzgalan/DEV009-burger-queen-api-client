@@ -9,7 +9,7 @@
 }
 
 .header {
-    background: url("./assets/navbar.jpeg") no-repeat center;
+    background: url("../public/navbar.jpeg") no-repeat center;
     background-size: cover;
     min-height: 13vh;
 }
@@ -166,7 +166,7 @@ table tr td, table tr th{
 }
 
 .section{
-    background: url("./assets/fondo.jpeg") no-repeat center;
+    background: url("../public/fondo.jpeg") no-repeat center;
     background-size: cover;
     min-height: 100vh;
 }
@@ -197,7 +197,7 @@ a.active {
 /********************CHEFPAGE.JSX********************/
 
 .header-chef {
-  background: url("..\src\assets\Fondo de navbar nueva.png") no-repeat center;
+  background: url("../public/Fondo\ de\ navbar\ nueva.png") no-repeat center;
   background-size: cover;
   min-height: 10vh;
   display: flex;
@@ -219,7 +219,7 @@ a.active {
 }
 
 .chef-container {
-  background: url("./assets/fondo.jpeg") no-repeat center;
+  background: url("../public/fondo.jpeg") no-repeat center;
     background-size: cover;
     min-height: 100vh;
    
