@@ -25,7 +25,7 @@ Nuestra aplicación tiene un enfoque claro: ofrecerte una herramienta convenient
 Descubre cómo Burger Queen Api Client puede mejorar tus procesos internos y brindar un servicio de alta calidad a tus clientes. ¡Bienvenido a una forma más inteligente de administrar tu restaurante!
 
 ## 2. Indicaciones Generales
-
+ 
 - Para el ingreso se pueden usar las siguientes credenciales: 
 
 | Credencial |Correo electrónico| Contraseña |
@@ -33,6 +33,8 @@ Descubre cómo Burger Queen Api Client puede mejorar tus procesos internos y bri
 | Administrador |  anita.borg@systers.xyz  | 123456
 | Mesero        | katycevallos127@gmail.com | 1234
 | Chef          | aleja@gmail.com | 1234
+
+Es importante destacar que los usuarios creados a través de la credencial del administrador tendrán automáticamente la contraseña "1234".
 
 - Para la creación de productos utilizar los siguientes nombres en el input de imagen: 
 
