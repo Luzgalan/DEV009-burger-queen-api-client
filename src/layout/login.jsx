@@ -5,6 +5,8 @@ import {  useNavigate } from 'react-router-dom'; // Importa BrowserRouter y useH
 import { loginAuth } from "../service/auth";
 import Swal from "sweetalert2";
 import LogoUrl from '../assets/Burguer__2_-removebg-preview.png' 
+import LadoIzquierdo from '../assets/pexels-valeria-boltneva-1199956.jpg' 
+import FondoLogin from '../assets/Diseño sin título (2).png' 
 
 
 function LoginLayout() {
@@ -39,9 +41,9 @@ function LoginLayout() {
   return (
     
     <div className='Background-Login'>
-      <img src='..\public\Diseño sin título (2).png'></img>
+      <img src={FondoLogin}></img>
       <div className="parte-izquierda">
-        <img src="..\public\pexels-valeria-boltneva-1199956.jpg" alt="Logo de la empresa" />
+        <img src={LadoIzquierdo} alt="Logo de la empresa" />
       </div>
      <div className="parte-derecha">
         <img src={LogoUrl} alt="Logo de la empresa" />
