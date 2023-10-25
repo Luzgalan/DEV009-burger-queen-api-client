@@ -1,7 +1,7 @@
-const baseUrl = 'http://127.0.0.1:8080'
+const baseUrl = 'https://burguer-queen-api-mock.vercel.app/'
 
 export const createOrder = async (orderData) => {
-  console.log({orderData})
+  console.log({ orderData })
   const response = await fetch(`${baseUrl}/orders`, {
     method: 'POST',
     headers: {
