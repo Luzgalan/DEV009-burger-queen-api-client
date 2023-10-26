@@ -1,6 +1,6 @@
 
 
-const baseUrl = 'http://127.0.0.1:8080'
+const baseUrl = 'hhttps://burguer-queen-api-mock.vercel.app/'
 
 //Funcion para obtener todos los productos 
 export const getAllProductos = async () => {
